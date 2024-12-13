@@ -20,7 +20,7 @@ export const getColor = (name:string):string | undefined => {
 		if (!matchingFruit && fruit.name.toLowerCase() === name.toLowerCase()) {
 			matchingFruit = fruit;
 		}
-	});
+	})
 	if(matchingFruit){
 		return matchingFruit.color;
 	}
@@ -29,22 +29,34 @@ export const getColor = (name:string):string | undefined => {
 // använd fruits-arrayen och returnera ikonen som matchar frukten name
 // finns det ingen sådan frukt så returnera undefined
 export const getIcon = (name:string):string | undefined => {
-	let matchingIcon: Fruit | undefined;
+	let matchingFruit: Fruit | undefined;
 	fruits.forEach((fruit) => {
-		if (!matchingIcon && fruit.name.toLowerCase() === name.toLowerCase()) {
-			matchingIcon = fruit;
+		if (!matchingFruit && fruit.name.toLowerCase() === name.toLowerCase()) {
+			matchingFruit = fruit;
 		}
 	})
-	if (matchingIcon) {
-		return matchingIcon.icon;
+	if (matchingFruit) {
+		return matchingFruit.icon;
 	}
 };
 
 // gör en till funktion som man ger ett fruktnamn och som returnerar en frukts kategori
+export const getCategory = (name:string):string | undefined => {
+	let matchingFruit: Fruit | undefined;
+	fruits.forEach((fruit) => {
+	if (!matchingFruit && fruit.name.toLowerCase() === name.toLowerCase()) {	
+		matchingFruit = fruit;
+	}
+	})
+	return matchingFruit?.category;
+}
 
-export const numberOfColoredFruits = (color)  => {
-	// använd fruits-arrayen och returnera hur många frukter det finns av en given färg color
-	// finns det inga frukter av den färgen så svara 0
+// använd fruits-arrayen och returnera hur många frukter det finns av en given färg color
+// finns det inga frukter av den färgen så svara 0
+export const numberOfColoredFruits = (color:string):number  => {
+	return fruits.filter(
+		(fruit) => fruit.color.toLowerCase() === color.toLowerCase()
+	  ).length;
 };
 
 // gör en numberOfCategoryFruits här också
