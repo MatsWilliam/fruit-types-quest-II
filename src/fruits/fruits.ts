@@ -1,4 +1,11 @@
-export const fruits = [
+export type Fruit = {
+	name: string;
+	icon: string;
+	color: string;
+	category: string;
+  };
+
+export const fruits:Fruit[] = [
 	{
 		name: "grape",
 		icon: "🍇",

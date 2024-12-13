@@ -1,16 +1,27 @@
-export const getFruit = (name) => {
+import { fruits, Fruit } from "./fruits";
+
 	// använd fruits-arrayen och returnera det fruit-objekt som matchar name
 	// finns det ingen sådan fruit så returnera undefined
+export const getFruit = (name: string): Fruit | undefined => {
+	let matchingFruit: Fruit | undefined;
+	fruits.forEach((fruit) => {
+		if (!matchingFruit && fruit.name.toLowerCase() === name.toLowerCase()) {
+		  matchingFruit = fruit;
+		}
+	});
+	return matchingFruit;
 };
 
-export const getIcon = (name) => {
 	// använd fruits-arrayen och returnera ikonen som matchar frukten name
-	// finns det ingen sådan frukt så returnera undefined
+// finns det ingen sådan frukt så returnera undefined
+export const getIcon = (icon:string):Fruit | undefined => {
+	return fruits.find((fruit) => fruit.icon.toLowerCase() === icon.toLowerCase());
 };
 
-export const getColor = (name) => {
-	// använd fruits-arrayen och returnera färgen som matchar frukten name
-	// finns det ingen sådan frukt så returnera undefined
+// använd fruits-arrayen och returnera färgen som matchar frukten name
+// finns det ingen sådan frukt så returnera undefined
+export const getColor = (color:string):Fruit | undefined => {
+	return fruits.find((fruit) => fruit.color.toLocaleLowerCase() === color.toLocaleLowerCase());
 };
 
 // gör en till funktion som man ger ett fruktnamn och som returnerar en frukts kategori
