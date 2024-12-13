@@ -28,14 +28,16 @@ export const getColor = (name:string):string | undefined => {
 
 // använd fruits-arrayen och returnera ikonen som matchar frukten name
 // finns det ingen sådan frukt så returnera undefined
-/* export const getIcon = (name:string):string | undefined => {
+export const getIcon = (name:string):string | undefined => {
 	let matchingIcon: Fruit | undefined;
 	fruits.forEach((fruit) => {
 		if (!matchingIcon && fruit.name.toLowerCase() === name.toLowerCase()) {
 			matchingIcon = fruit;
 		}
 	})
-	return matchingIcon.icon;
+	if (matchingIcon) {
+		return matchingIcon.icon;
+	}
 };
 
 // gör en till funktion som man ger ett fruktnamn och som returnerar en frukts kategori
